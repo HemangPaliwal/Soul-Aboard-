@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script>
+		function validateForm() {
+	var first_name=document.getElementById("first_name");
+	var last_name=document.getElementById("last_name");
+	var email=document.getElementById("email");
+	var password=document.getElementById("password");
+	var confirm_password=document.getElementById("confirm_password");
+	var phone_number=document.getElementById("phone_number");
+	if(f_name(first_name))
+	{
+		if(l_name(last_name))
+		{
+			if(email_add(email))
+			{
+				if(pass(password,4,15))
+				{
+					if(confirm_pass(confirm_password,password))
+					{
+						if(phone_number(phone_number))
+						{
+							return true;
+						}
+					}
+				}
+
+			}
+		}
+		return false;
+	}
+}
+function f_name(name){
+	var letters=/^[A-Za-z]+$/;
+	if(name.value.match(letters)){
+		return true;
+	}
+	else{
+	
+	alert("First Name must have alphabet character only");
+	name.focus();
+	return false;
+	}
+}
+
+function l_name(name){
+	var letters=/^[A-Za-z]+$/;
+	if(name.value.match(letters)){
+		return true;
+	}
+	else{
+	
+	alert("Last Name must have alphabet character only");
+	name.focus();
+	return false;
+	}
+}
+
+function email_add(email){
+	var format=/^([A-Za-z0-9_\.\-])+\@(([A-Za-z0-9\-])+\.)+([A-Za-z0-9]{2,4})+$/;
+	if(email.value.match(format))
+	{
+		return true;
+	}
+	else{
+		
+		alert("Please Enter a Valid Email Addreess");
+		email.focus();
+		return false;
+	}
+}
+
+function pass(password,min,max){
+	var length=password.value.length;
+	if(length>=min&&length<=max){
+		return true;
+	}
+	else
+	{
+		
+		alert("Password length must be between"+min+"and"+max);
+		password.focus();
+		return false;
+	}
+}
+function confirm_pass(confirm_password,password){
+	if(confirm_password.value==password.value){
+		return true;
+	}
+	else{
+		
+		alert("Passwords do not match");
+		confirm_password.focus();
+		return false;
+	}
+}
+
+function phone_number(phone_number){
+	var format=/^[0-9]+$/;
+	if(phone_number.value.match(format)&&phone_number.value.length===10){
+		return true;
+	}
+	else if(phone_number.length!=10){
+		
+		alert("Mobile Number must be of 10 digits");
+		phone_number.focus();
+		return false;
+	}
+	else{
+		
+		alert("Mobile Number must contain only numbers");
+		phone_number.focus();
+		return false;
+	}
+}
+		
+		</script>
+	<style type="text/css">
+		.mainframe{
+			width: 35%;
+			height:600px;
+			border:#b30000 solid 1px;
+			border-radius: 0.5em;
+			margin-left: 32.5%;
+			margin-top: 1%;
+			padding: 1%;
+		}
+		.inputs{
+			width: 90%;
+			border: #b30000 solid 1px;
+			border-radius: 0.5em;
+			height: 30px;
+			margin: 2%;
+			padding:1%;
+		}
+        .btn{
+            background-color: #b30000;
+            outline:none;
+            border: white solid 1px;
+            border-radius: 0.5em;
+            color : white;
+        }
+        .btn:hover{
+            border:white solid 2px;
+            background-color: red;
+        }
+		  body{
+  background-image: url("floral.jpg");
+  background-repeat: no-repeat;
+  background-size: cover; 
+  background-attachment: fixed;
+}
+	</style>
+</head>
+<body>
+<div class="mainframe">
+	<img src="logo.PNG"  style="margin-left: 13.5%;">
+	<div>
+        <h2 style="color: #b30000; text-align: center;">Sign Up</h2>
+        <form action="/users" method="POST">
+		<table style="width: 100%;"><thead><th width="30%"></th><th width="70%"></th></thead><tbody><tr>
+			<td>First Name</td>
+			<td>:<input type="text" name="fname" placeholder="First name" class="inputs" id="first_name"></td>
+        </tr>
+        <tr>
+			<td>Last Name</td>
+			<td>:<input type="text" name="lname" placeholder="Last name" class="inputs" id="last_name"></td>
+		</tr>
+		<tr>
+			<td>Email</td>
+			<td>:<input type="email" name="email" placeholder="email" class="inputs" id="email"></td>
+		</tr>
+		<tr>
+			<td>Password</td>
+			<td>:<input type="Password" name="pwd" placeholder="password" class="inputs" id="password"></td>
+        </tr>
+        <tr>
+			<td>Confirm Password</td>
+			<td>:<input type="Password" name="cnfpwd" placeholder="confirm password" class="inputs" id="confirm_password"></td>
+		</tr>
+			<tr>
+				<td>Phone Number</td>
+				<td>:<input type="text" name="no" placeholder="Phone Number" class="inputs" id="phone_number"></td>
+			</tr>
+		
+		</tbody></table>
+		<button class="btn" style="margin-left: 40%; margin-top: 5%; height: 35px;" type="submit" onsubmit="return validateForm()">Create Account</button><br>
+    </form>
+    </div>
+</div>
+</body>
+</html>

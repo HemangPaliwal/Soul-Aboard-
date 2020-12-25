@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>booking</title>
+	
+	<style type="text/css">
+		.selection_grid
+		{
+			margin-left: 5%;
+			width: 90%;
+			display: grid;
+  			background-color:rgba(0, 0, 0,0.5);
+
+		}
+		.grid_items{
+			text-align: left;
+			font-size: 30px;
+			padding:10px 0px;
+			background-color:rgba(0, 0, 0,0.1);
+			border: solid 0px #00001a;
+			color: white;
+			padding-left: 19px;
+		}
+		label{
+			font-size: 28px;
+		}
+		input[type=search], input[type=text], input[type=email]
+		{
+			position: absolute;
+			height: 5%;
+			border: 1px black solid;
+			border-radius: 20px;
+			text-align:center;
+			background-color: white;
+			padding-left: 5px;
+			margin-left: 10px;
+		}
+		input[type=date]
+		{
+			position: absolute;
+			height: 5%;
+			width: 10%;
+			border: 1px black solid;
+			text-align: center;
+			padding-left: 5px;
+			margin-left: 10px;
+		}
+		input[type=checkbox]
+		{
+			width: 20px;
+			height: 20px;
+		}
+			/*input[type=search]:hover,input[type=text]:hover,input[type=email]:hover
+			{
+				border-color:green;
+			}*/
+		input[type=checkbox]:hover,button:hover,select:hover,input[type=date]:hover{
+			cursor:pointer;
+		}
+
+		input[type=text]:focus,input[type=email]:focus,input[type=search]:focus,input[type=number]:focus,select:focus{
+			border-color:blue;
+			border-width: 3px;
+			outline: none;
+		}
+		body {
+			padding-top: 70px;
+  background-image: url("beachbg.jpg");
+   background-repeat: no-repeat;
+   background-size: cover;
+   overflow: hidden;
+   }
+   #price{
+   	margin: 5%;
+   	width: 50%;
+   	height: 40px;
+   	background-color: #c6ff1a;
+   	border: 2px white solid;
+   	font-size: 22px;
+   	text-align: center;
+   	color:black;
+   	padding-top: 18px;
+   }
+   #price:hover
+   {
+   	background-color: #80ff00;
+   	font-size: 25px;
+   }
+    button{
+   	margin: 5%;
+   	width: 50%;
+   	height: 60px;
+   	background-color: #c6ff1a;
+   	border: 2px white solid;
+   	font-size: 20px;
+   }
+   button:hover
+   {
+   	background-color: #80ff00;
+   	font-size: 25px;
+   }
+   	.navbar{
+			overflow: auto;
+			position: absolute;
+			background-color: #c6ff1a;
+			padding-left: 2%;
+			width: 100%;
+			top: 0px;
+			left:0px;
+		}
+		.navbar_elements{
+			width: 8%;
+			display: inline;
+			float: left;
+			height: 30px;
+			border: 1px solid black;
+			border-radius: 0.5em;
+			color:  black;
+			text-align: center;
+			padding-top: 5px;
+			margin: 1%;	
+		}
+		.navbar_elements:hover{
+			background-color: #80ff00;
+			color:black;
+			border: black 1.5px solid;
+		}
+
+	</style>
+</head>
+<body>
+
+	<div class="navbar">
+		<a href="/"><div class="navbar_elements">
+			Home 
+		</div></a>
+		<a href="/booking"><div class="navbar_elements">
+			Hotels 
+		</div></a>
+		<a href="/to_do"><div class="navbar_elements">
+			Day Planner
+		</div></a>
+			<a href="/wayanad"><div class="navbar_elements">
+			Wayanad
+		</div></a>
+		<a href="/goa"><div class="navbar_elements">
+			Goa
+		</div></a>
+		<a href="/kashmir"><div class="navbar_elements">
+			Kashmir
+		</div></a>
+		<a href="/sundarbans"><div class="navbar_elements">
+			Sundarbans
+		</div></a>
+		<a href="/new_review"><div class="navbar_elements">
+			Write Review
+		</div></a>
+		<a href="/view_review"><div class="navbar_elements">
+			View Reviews
+		</div></a>
+	</div>
+
+	<div class="selection_grid" style="grid-template-columns: 100%;">
+			<div class="grid_items"><h1 style="text-align: center; color: white; font-size: 50px; font-weight: 200">Book Your Hotel</h1></div>
+		</div>
+	<form align='center'>
+		<div class="selection_grid" style="grid-template-columns: 50% 50%;">
+			<div class="grid_items"><label >Name:</label><input type="text" placeholder="Name"  id="name" style="margin-left: 45px; width: 25%;"></div>
+			<div class="grid_items"><label>Email:</label><input type="email" placeholder="Email" name="email" style="width: 25%;margin-left: 65px;"></div>
+		</div>
+		<div class="selection_grid" style="grid-template-columns: 50% 50%;">
+			<div class="grid_items"><label>Number</label><input type="text" placeholder="No of Adults"  id="adults" style="width: 25%;margin-left: 28px;margin-top: 15px;"><br><label> of Adults:</label></div>
+			<div class="grid_items"><label>Number</label><input type="text" name="children" placeholder="No of Children" style="width: 25%;margin-left: 50px; margin-top: 15px;"><br><label>of Children :</label></div>
+		</div>
+		<div class="selection_grid" style="grid-template-columns: 50% 50%;">
+			<div class="grid_items"><label>Breakfast Inclusive:</label><input type="checkbox" id="brk"  value="Breakfast"></div>
+			<div class="grid_items"><label>Extra Bedding:</label><input type="checkbox" id="exbd"  value="bedding"></div>
+		</div>	
+		<div class="selection_grid" style="grid-template-columns: 40% 30% 30%;">
+			<div class="grid_items"><label>Location:</label><input type="search" placeholder="Search"  id="searchbox" style="width: 20%;"></div>
+			<div class="grid_items"><label>Check in Date:</label><input type="date" name="checkin"></div>
+			<div class="grid_items"><label>Check out Date:</label><input type="date" name="checkout"></div>
+		</div>
+		<div class="selection_grid" style="grid-template-columns: 40% 30% 30%;">
+			<div class="grid_items"><label style="font-size: 25px;">Room type:</label>
+ 				 <select name="type" id="rt" style="width: 58% ; height: 30px;">
+    				<option value="Regular">Regular</option>
+    				<option value="Premium">Premium</option>
+    				<option value="Executive Suite">Executive Suite</option>
+    				<option value="Presidential Suite">Presidential Suite</option>
+  				</select></div>
+  			<div class="grid_items"><label>No of Rooms :</label><input id="rn"type="Number" step="1" min="1" max="3" value="1"name="no room" style="width: 15%;" ></div>
+			<div class="grid_items"><label>Mobile Number:</label><input type="text" placeholder="Mobile Number" name="phone_no"  ></div>
+			</div>
+			<div class="selection_grid" style="grid-template-columns: 50% 50%">
+				<div class="grid_items"><div class="price" id="price" style="margin-left: 45%;">Calculate Price</div></div>
+				<div class="grid_items"><button type="submit" style="margin-left: 15%;" type="submit">Book now!</button></div>
+			</div>
+	</form>
+	<script type="text/javascript">
+		function calcprice()
+{
+	var price=0,brk=0,exbd=0;
+	if (document.getElementById('brk').checked)
+	{
+		brk=1;
+	}
+	if (document.getElementById('exbd').checked)
+	{
+		var exbd=1;
+	}
+	var rt=document.getElementById('rt');
+	switch(rt.value)
+	{
+		case 'Regular':
+		{
+			price=200;
+			break;
+		}
+		case 'Premium':
+		{
+			price=300;
+			break;
+		}
+		case 'Executive Suite':
+		{
+			price=400;
+			break;
+		}
+		case 'Presidential Suite':
+		{
+			price=500;
+			break;
+		}
+	}
+	if (exbd===1) {
+		price=price+100;
+	}
+	if(brk===1)
+	{
+		price=price+50
+	}
+var rn=document.getElementById('rn');	
+price=price*rn.value;
+document.getElementById('price').textContent=price+"$";
+}
+
+		document.getElementById('price').addEventListener("click",function(){
+	calcprice();
+});
+	</script>
+</body>
+</html>
