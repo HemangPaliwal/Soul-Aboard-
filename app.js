@@ -6,6 +6,7 @@ const saltRounds =10;
 const session = require("express-session");
 const passport = require("passport");
 const passportLocalMongoose = require("passport-local-mongoose");
+const port = process.env.PORT || 8000;
 
 const app = express();
 
@@ -30,7 +31,9 @@ app.use(express.static('public'));
 
 const dbURL = 'mongodb+srv://arshita_07:test123@cluster0.tqmup.mongodb.net/reviews?retryWrites=true&w=majority';
 mongoose.connect(dbURL)
-    .then((result) => app.listen(3000))
+    .then((result) => app.listen(port,()=>{
+        console.log(`listining at port ${port}`)
+    }))
     .catch((err) => console.log(err));
 app.use(express.urlencoded({ extended: true }));
 
