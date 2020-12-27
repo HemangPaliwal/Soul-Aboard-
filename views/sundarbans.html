@@ -108,7 +108,7 @@
 		document.getElementById("status").innerHTML= obj.weather[0].main;
 		}
 		}
-		http_request.open("GET","http://api.openweathermap.org/data/2.5/weather?q=Kolkata&appid=aa6075d29abd22a7bfc445275aaf0888",true);
+		http_request.open("GET","https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather?q=Kolkata&appid=aa6075d29abd22a7bfc445275aaf0888",true);
 		http_request.send();
 		
 			</script>
